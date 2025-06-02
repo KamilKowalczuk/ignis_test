@@ -9,6 +9,7 @@ from modules import (
     OSD,
     Powermenu,
     Settings,
+    SidePanelLeft
 )
 
 app = IgnisApp.get_default()
@@ -38,3 +39,4 @@ Powermenu()
 OSD()
 
 Settings()
+SidePanelLeft()

@@ -140,3 +140,55 @@
     color: $onSurface;
     margin-right: 0.3rem;
 }
+.running-apps-bar-container {
+    padding: 0 0.1rem; 
+}
+
+.workspace-group {
+    background-color: rgba($surfaceContainer, 0.2); 
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.2rem; 
+    margin: 0 0.05rem;    
+    min-height: 1.5rem; // Upewnij się, że grupa ma jakąś wysokość
+    // align-items: center; // USUNIĘTE - GTK.Box inaczej zarządza wyrównaniem.
+                           // Aby wyśrodkować elementy w pionie wewnątrz tej grupy (Widget.Box),
+                           // ustaw `valign="center"` na WIDGETACH dzieci (RunningAppButton) w kodzie Pythona.
+                           // Widget.Box domyślnie układa elementy w rzędzie (horizontal).
+}
+
+.running-app-button {
+    padding: 0.2rem;        
+    margin: 0 0.1rem;       
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out;
+    min-width: 1.5rem; 
+    min-height: 1.5rem;
+    // Aby ikona wewnątrz przycisku była wyśrodkowana,
+    // Widget.Icon (będący dzieckiem Widget.Button) powinien mieć
+    // halign="center" i valign="center" ustawione w Pythonie.
+
+    image { // Celuje w GtkImage wewnątrz Widget.Icon
+        -gtk-icon-size: 1rem; // Ustawia rozmiar samej ikony, jeśli pixel_size w Pythonie nie wystarcza
+    }
+
+    &:hover {
+        background-color: rgba($onSurface, 0.15);
+    }
+
+    // &.active { // Styl dla aktywnego przycisku (podświetlenie)
+    //     background-color: $primary; 
+    //     image { // Zmiana koloru ikony, gdy przycisk jest aktywny
+    //         color: $onPrimary; 
+    //     }
+    // }
+}
+
+.running-apps-workspace-separator {
+    background-color: rgba($outline, 0.35);
+    min-width: 1px; 
+    // align-self: stretch; // USUNIĘTE - Gtk.Separator pionowy w poziomym Gtk.Box
+                           // powinien domyślnie rozciągnąć się na dostępną wysokość.
+                           // Jeśli nie, upewnij się, że kontener rodzic (RunningAppsBar)
+                           // ma określoną wysokość lub jego dzieci ją wymuszają.
+                           // Można też ustawić `vexpand=True` na separatorze w Pythonie.
+}

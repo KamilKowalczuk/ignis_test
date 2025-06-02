@@ -1,0 +1,103 @@
+// scss/side_panel_left.scss
+
+// .side-panel-left-window {
+//     // Możesz tu dodać globalne style dla okna panelu, jeśli 'unset' nie wystarcza
+//     // np. specyficzny box-shadow, jeśli jest potrzebny
+// }
+
+.side-panel-left-main-box {
+    background-color: $surface; // Użyj koloru tła z palety Material You
+    color: $onSurface;
+    // border-radius: 0 $large-radius $large-radius 0; // Zaokrąglenie tylko prawych rogów, jeśli panel jest po lewej
+                                                    // (dostosuj promienie)
+}
+
+.side-panel-left-navigation-column {
+    // background-color: darken($surface, 3%); // Lekko ciemniejsze tło dla nawigacji (opcjonalnie)
+    padding: 0.5rem;
+    min-width: 3.5rem; // Szerokość kolumny nawigacyjnej
+
+    .side-panel-nav-button {
+        padding: 0.5rem;
+        border-radius: 100px; // Okrągłe przyciski (pigułki)
+        transition: background-color 0.2s ease-in-out;
+        color: $onSurfaceVariant;
+
+        image { // Celowanie w ikonę wewnątrz przycisku
+            color: $onSurfaceVariant; // Domyślny kolor ikony
+            -gtk-icon-size: 1.5rem; // Rozmiar ikony
+        }
+        
+        &:hover {
+            background-color: rgba($onSurfaceVariant, 0.1);
+        }
+
+        &.active {
+            background-color: $secondaryContainer; // Kolor tła dla aktywnego przycisku
+            image {
+                color: $onSecondaryContainer; // Kolor ikony na aktywnym tle
+            }
+        }
+    }
+}
+
+.side-panel-separator {
+    background-color: $outlineVariant; // Kolor separatora
+    min-width: 1px;
+    margin: 0.5rem 0.2rem; // Marginesy dla separatora
+}
+
+.side-panel-left-content-stack {
+    padding: 0.75rem; // Wewnętrzny padding dla obszaru zawartości
+}
+
+// Style dla AppLauncherView
+.app-launcher-view {
+    padding: 0.75rem; // <<<--- TUTAJ USTAW PADDING (np. 0.75rem to ok. 12px, 10px to ok. 0.625rem)
+}
+
+.app-launcher-view-search-box {
+    padding: 0.5rem 0.75rem;
+    background-color: $surfaceContainerHigh;
+    border-radius: 1.5rem;
+    // margin-bottom: 0.75rem; // Usunięto, bo search_entry ma teraz margin_bottom
+                               // Można też ustawić margin na tym kontenerze, jeśli potrzeba
+
+    image { 
+        color: $onSurfaceVariant;
+    }
+}
+.app-launcher-view-search-entry {
+    // Gtk.Entry może potrzebować specyficznych stylów, jeśli domyślne nie pasują
+    // np. usunięcie ramki, zmiana tła
+    background-color: transparent;
+    border: none;
+    caret-color: $primary; // Kolor kursora
+    color: $onSurface;
+    font-size: 1rem;
+}
+
+// .app-launcher-view-scroll {
+//     // Można dodać style dla paska przewijania, jeśli standardowy nie pasuje
+// }
+
+.app-launcher-view-item {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem; // Zaokrąglenie dla elementów listy
+    transition: background-color 0.15s ease-in-out;
+    margin-bottom: 0.25rem; // Mały odstęp między elementami
+
+    &:hover {
+        background-color: rgba($onSurface, 0.08);
+    }
+
+    .app-launcher-view-item-label {
+        font-size: 0.95rem;
+        margin-left: 0.5rem;
+    }
+}
+
+.app-launcher-view-no-results {
+    color: $onSurfaceVariant;
+    margin-top: 2rem;
+}
