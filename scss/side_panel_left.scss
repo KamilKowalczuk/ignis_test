@@ -6,75 +6,78 @@
 // }
 
 .side-panel-left-main-box {
-    background-color: $surface; // Użyj koloru tła z palety Material You
-    color: $onSurface;
-    // border-radius: 0 $large-radius $large-radius 0; // Zaokrąglenie tylko prawych rogów, jeśli panel jest po lewej
-                                                    // (dostosuj promienie)
+	background-color: $surfacetrans; // Użyj koloru tła z palety Material You
+	color: $onSurface;
+	border-radius: 1.5rem 1.5rem 1.5rem 1.5rem; // Dostosuj wartość rem (np. 1.2rem ~ 18-20px)
+	box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.15);
+	// border-radius: 0 $large-radius $large-radius 0; // Zaokrąglenie tylko prawych rogów, jeśli panel jest po lewej
+	// (dostosuj promienie)
 }
 
 .side-panel-left-navigation-column {
-    // background-color: darken($surface, 3%); // Lekko ciemniejsze tło dla nawigacji (opcjonalnie)
-    padding: 0.5rem;
-    min-width: 3.5rem; // Szerokość kolumny nawigacyjnej
+	// background-color: darken($surface, 3%); // Lekko ciemniejsze tło dla nawigacji (opcjonalnie)
+	padding: 0.5rem;
+	min-width: 3.5rem; // Szerokość kolumny nawigacyjnej
 
-    .side-panel-nav-button {
-        padding: 0.5rem;
-        border-radius: 100px; // Okrągłe przyciski (pigułki)
-        transition: background-color 0.2s ease-in-out;
-        color: $onSurfaceVariant;
+	.side-panel-nav-button {
+		padding: 0.5rem;
+		border-radius: 100px; // Okrągłe przyciski (pigułki)
+		transition: background-color 0.2s ease-in-out;
+		color: $onSurfaceVariant;
 
-        image { // Celowanie w ikonę wewnątrz przycisku
-            color: $onSurfaceVariant; // Domyślny kolor ikony
-            -gtk-icon-size: 1.5rem; // Rozmiar ikony
-        }
-        
-        &:hover {
-            background-color: rgba($onSurfaceVariant, 0.1);
-        }
+		image {
+			// Celowanie w ikonę wewnątrz przycisku
+			color: $onSurfaceVariant; // Domyślny kolor ikony
+			-gtk-icon-size: 1.5rem; // Rozmiar ikony
+		}
 
-        &.active {
-            background-color: $secondaryContainer; // Kolor tła dla aktywnego przycisku
-            image {
-                color: $onSecondaryContainer; // Kolor ikony na aktywnym tle
-            }
-        }
-    }
+		&:hover {
+			background-color: rgba($onSurfaceVariant, 0.1);
+		}
+
+		&.active {
+			background-color: $secondaryContainer; // Kolor tła dla aktywnego przycisku
+			image {
+				color: $onSecondaryContainer; // Kolor ikony na aktywnym tle
+			}
+		}
+	}
 }
 
 .side-panel-separator {
-    background-color: $outlineVariant; // Kolor separatora
-    min-width: 1px;
-    margin: 0.5rem 0.2rem; // Marginesy dla separatora
+	background-color: $outlineVariant; // Kolor separatora
+	min-width: 1px;
+	margin: 0.5rem 0.2rem; // Marginesy dla separatora
 }
 
 .side-panel-left-content-stack {
-    padding: 0.75rem; // Wewnętrzny padding dla obszaru zawartości
+	padding: 0.75rem; // Wewnętrzny padding dla obszaru zawartości
 }
 
 // Style dla AppLauncherView
 .app-launcher-view {
-    padding: 0.75rem; // <<<--- TUTAJ USTAW PADDING (np. 0.75rem to ok. 12px, 10px to ok. 0.625rem)
+	padding: 0.55rem; // <<<--- TUTAJ USTAW PADDING (np. 0.75rem to ok. 12px, 10px to ok. 0.625rem)
 }
 
 .app-launcher-view-search-box {
-    padding: 0.5rem 0.75rem;
-    background-color: $surfaceContainerHigh;
-    border-radius: 1.5rem;
-    // margin-bottom: 0.75rem; // Usunięto, bo search_entry ma teraz margin_bottom
-                               // Można też ustawić margin na tym kontenerze, jeśli potrzeba
+	padding: 0.3rem 0.55rem;
+	background-color: $surfaceContainerHigh;
+	border-radius: 1.5rem;
+	// margin-bottom: 0.75rem; // Usunięto, bo search_entry ma teraz margin_bottom
+	// Można też ustawić margin na tym kontenerze, jeśli potrzeba
 
-    image { 
-        color: $onSurfaceVariant;
-    }
+	image {
+		color: $onSurfaceVariant;
+	}
 }
 .app-launcher-view-search-entry {
-    // Gtk.Entry może potrzebować specyficznych stylów, jeśli domyślne nie pasują
-    // np. usunięcie ramki, zmiana tła
-    background-color: transparent;
-    border: none;
-    caret-color: $primary; // Kolor kursora
-    color: $onSurface;
-    font-size: 1rem;
+	// Gtk.Entry może potrzebować specyficznych stylów, jeśli domyślne nie pasują
+	// np. usunięcie ramki, zmiana tła
+	background-color: transparent;
+	border: none;
+	caret-color: $primary; // Kolor kursora
+	color: $onSurface;
+	font-size: 1rem;
 }
 
 // .app-launcher-view-scroll {
@@ -82,22 +85,181 @@
 // }
 
 .app-launcher-view-item {
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.75rem; // Zaokrąglenie dla elementów listy
-    transition: background-color 0.15s ease-in-out;
-    margin-bottom: 0.25rem; // Mały odstęp między elementami
+	padding: 0.3rem 0.55rem;
+	border-radius: 0.75rem; // Zaokrąglenie dla elementów listy
+	transition: background-color 0.15s ease-in-out;
+	margin-bottom: 0.25rem; // Mały odstęp między elementami
 
-    &:hover {
-        background-color: rgba($onSurface, 0.08);
-    }
+	&:hover {
+		background-color: rgba($onSurface, 0.08);
+	}
 
-    .app-launcher-view-item-label {
-        font-size: 0.95rem;
-        margin-left: 0.5rem;
-    }
+	.app-launcher-view-item-label {
+		font-size: 0.95rem;
+		margin-left: 0.5rem;
+	}
 }
 
 .app-launcher-view-no-results {
+	color: $onSurfaceVariant;
+	margin-top: 2rem;
+}
+// ... (istniejące style dla side_panel_left) ...
+
+.weather-view {
+	padding: 0.75rem; // <<<--- PADDING USTAWIONY TUTAJ (np. 0.75rem to ok. 12px, 15px to ok. 0.9375rem)
+	// Ogólne style dla widoku pogody
+	// padding jest już ustawiony w Pythonie, ale można tu dodać np. wyrównanie tekstu
+	//text-align: center; // Jeśli chcesz, aby wszystkie etykiety były domyślnie wyśrodkowane
+
+	.weather-city-label {
+		font-size: 1.3rem;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+	}
+
+	.weather-main-icon {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+		// Rozmiar ikony ustawiony w Pythonie (pixel_size=96)
+		// Kolor ikony powinien być dziedziczony lub ustawiony, jeśli to ikona symboliczna
+		// np. color: $primary;
+	}
+
+	.weather-temp-label {
+		font-size: 2.8rem; // Duża temperatura
+		font-weight: lighter; // Lżejsza czcionka dla temperatury
+		margin-bottom: 0.2rem;
+	}
+
+	.weather-description-label {
+		font-size: 1.1rem;
+		color: $onSurfaceVariant; // Mniej ważny tekst
+		margin-bottom: 0.8rem;
+	}
+
+	.weather-details-grid {
+		margin-top: 0.5rem;
+		// Możesz chcieć, aby siatka była wyśrodkowana, jeśli nie zajmuje całej szerokości
+		// margin-left: auto;
+		// margin-right: auto;
+		// max-width: 300px; // Ogranicz szerokość siatki, jeśli potrzeba
+	}
+
+	.weather-detail-label {
+		font-weight: bold;
+		color: $onSurfaceVariant;
+		// halign="end" ustawiony w Pythonie
+	}
+
+	// .weather-detail-value {
+	//     // halign="start" ustawiony w Pythonie
+	// }
+
+	.weather-refresh-button {
+		// Style dla przycisku odświeżania, np. Material You button style
+		// Możesz użyć istniejących mixinów lub klas
+		// np. @extend .material-button; (jeśli masz taką klasę)
+		padding: 0.4rem 1rem;
+		border-radius: 1.5rem; // Pigułka
+		background-color: $primaryContainer;
+		color: $onPrimaryContainer;
+		border: none;
+		font-size: 0.9rem;
+
+		&:hover {
+			background-color: darken($primaryContainer, 5%);
+		}
+		&:active {
+			background-color: darken($primaryContainer, 10%);
+		}
+	}
+}
+// W scss/side_panel_left.scss
+
+// .system-info-view-scroll {
+//     // Style dla kontenera przewijania, jeśli potrzebne
+// }
+
+// .system-info-view-content {
+//     // Style dla głównego Boxa wewnątrz Scroll
+//     // margin/padding już ustawione w Pythonie
+// }
+
+.info-section {
+	margin-bottom: 1rem; // Odstęp pod każdą sekcją
+	// background-color: rgba($surfaceVariant, 0.3); // Delikatne tło dla sekcji (opcjonalne)
+	// padding: 0.5rem;
+	// border-radius: $medium-radius;
+}
+
+.section-title {
+	// Klasa dla Widget.Label będącego tytułem sekcji
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: $primary; // Tytuły sekcji w kolorze akcentu
+	margin-bottom: 0.3rem;
+}
+
+// .system-info-view-scroll {
+// 	// Możesz chcieć usunąć domyślne obramowanie/tło, jeśli Scroll je dodaje
+// 	// border: none;
+// 	// background-color: transparent;
+// }
+
+// .system-info-view-content {
+// 	// padding już ustawiony w Pythonie
+// }
+
+.info-section {
+	margin-bottom: 1.2rem; // Większy odstęp pod sekcją
+}
+
+.section-title {
+	font-size: 1.15rem; // Nieco większy
+	font-weight: bold;
+	color: $primary;
+	margin-bottom: 0.4rem;
+}
+
+// Style dla siatki informacji (etykieta + wartość)
+.info-grid {
+	// GtkLabel { // Ogólny styl dla etykiet w siatce
+	//   font-size: 0.9rem;
+	// }
+
+	// Celowanie w etykietę (nazwę pola, np. "System:")
+	.info-label {
+		// Klasa dodana w Pythonie
+		color: $onSurfaceVariant; // Mniej wyróżniona
+		margin-right: 0.5rem; // Odstęp od wartości
+	}
+
+	// Celowanie w wartość (np. "Arch Linux")
+	// Jeśli wartość jest też Widget.Label, można jej nadać klasę lub stylizować ogólnie
+	// GtkLabel[selectable="true"] { // Etykiety, które mają selectable=true
+	//   font-weight: normal;
+	// }
+}
+.info-grid { // Jeśli nadal używasz siatki dla innych sekcji
+    // ... style dla siatki ...
+    .info-label { 
+        color: $onSurfaceVariant;
+        margin-right: 0.5rem; 
+    }
+}
+
+// Style dla nowej sekcji dysków (która używa Boxów, a nie Grid)
+.disk-label { // Dla etykiet typu "Dysk 1 (Kingston):"
     color: $onSurfaceVariant;
-    margin-top: 2rem;
+    margin-right: 0.5rem;
+}
+
+// .disk-value { // Dla wartości np. "Wolne: 123.4 GB z 500.0 GB"
+//     // Domyślny kolor tekstu będzie OK
+// }
+
+.error-text { // Dla komunikatów o błędach odczytu dysku
+    color: $error; // Użyj koloru błędu z Twojej palety
+    font-style: italic;
 }

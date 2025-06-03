@@ -4,6 +4,6 @@ from .app_launcher_view import AppLauncherView
 
 __all__ = [
     "AppLauncherView",
-    # "WeatherView",
+    "WeatherView",
     # "GeminiChatView",
 ]

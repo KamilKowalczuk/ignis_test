@@ -12,7 +12,7 @@ applications_service = ApplicationsService.get_default()
 class RunningAppButton(Widget.Button):
     def __init__(self, window_data: HyprlandWindow):
         self.window_data = window_data
-        self.icon_widget = Widget.Icon(pixel_size=24)
+        self.icon_widget = Widget.Icon(pixel_size=14)
         super().__init__(
             child=self.icon_widget,
             on_click=self._on_click,

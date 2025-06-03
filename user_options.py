@@ -37,9 +37,17 @@ class UserOptions(OptionsManager):
         dark_mode: bool = True
         colors: dict[str, str] = {}
 
+    class Weather(OptionsGroup): # <--- NOWA SEKCJA
+        api_key: str | None = "3108dec7c57884e28f0f34cc61ee5f40" # Twój klucz API jako domyślny (lub None)
+        city_name: str = "Lublin"    # Domyślna lokalizacja
+        units: str = "metric"        # metric (Celsius), imperial (Fahrenheit), standard (Kelvin)
+        language: str = "pl"         # Język odpowiedzi API
+
+
     user = User()
     settings = Settings()
     material = Material()
+    weather = Weather()
 
 
 user_options = UserOptions()
