@@ -38,8 +38,10 @@ class UserOptions(OptionsManager):
         colors: dict[str, str] = {}
 
     class Weather(OptionsGroup): # <--- NOWA SEKCJA
-        api_key: str | None = "3108dec7c57884e28f0f34cc61ee5f40" # Twój klucz API jako domyślny (lub None)
+        api_key: str | None = "463be7bb2d9ff2fe372b2bbe21abc3ee" # Twój klucz API jako domyślny (lub None)
         city_name: str = "Lublin"    # Domyślna lokalizacja
+        latitude: float | None = None   # <<<--- TO POLE MUSI TU BYĆ
+        longitude: float | None = None  # <<<--- I TO POLE MUSI TU BYĆ
         units: str = "metric"        # metric (Celsius), imperial (Fahrenheit), standard (Kelvin)
         language: str = "pl"         # Język odpowiedzi API
 

@@ -3,7 +3,7 @@ from ignis.widgets import Widget
 from ignis.app import IgnisApp
 from ignis.services.hyprland import HyprlandService 
 from ignis.services.applications import ApplicationsService
-from .widgets import StatusPill, Tray, KeyboardLayout, Battery, Workspaces, RunningAppsBar
+from .widgets import StatusPill, Tray, KeyboardLayout, Battery, Workspaces, RunningAppsBar, WeatherBarWidget
 
 # >>> NOWY IMPORT <<<
 from modules.side_panel_left.state import active_view_in_left_panel # Importujemy zmienną stanu
@@ -19,17 +19,36 @@ class Bar(Widget.Window):
         self.monitor_id = monitor
 
         side_panel_left_toggle_button = Widget.Button(
-            child=Widget.Icon(image="menu-symbolic", pixel_size=20),
+            child=Widget.Icon(image="menu-symbolic", pixel_size=16), # Dostosuj pixel_size
             on_click=lambda _, m=self.monitor_id: self._handle_side_panel_action(m, "system_info", toggle=True),
-            css_classes=["bar-button", "unset"]
+            css_classes=["bar-button", "left-panel-control-button", "unset", "side-panel-toggle-btn"]
         )
 
         app_list_left_toggle_button = Widget.Button(
-            child=Widget.Icon(image="apps-symbolic", pixel_size=20),
+            child=Widget.Icon(image="apps-symbolic", pixel_size=16), # Dostosuj pixel_size
             on_click=lambda _, m=self.monitor_id: self._handle_side_panel_action(m, "app_launcher", toggle=False),
-            css_classes=["bar-button", "unset"]
+            css_classes=["bar-button", "left-panel-control-button", "unset", "app-launcher-btn"]
         )
         
+        weather_bar_item = WeatherBarWidget(monitor_id=self.monitor_id)
+        # WeatherBarWidget.__init__ już powinien dodawać "left-panel-control-button"
+        # Jeśli nie, dodaj: weather_bar_item.add_css_class("left-panel-control-button")
+        weather_bar_item.add_css_class("left-panel-control-button")
+
+
+        # Nowy kontener-pastylka dla tych trzech przycisków
+        left_controls_group = Widget.Box(
+            css_classes=["left-panel-controls-group", "pill-group"], # Klasa dla grupy-pastylki
+            spacing=0, # Odstępy między przyciskami w grupie będą zarządzane przez padding/margin samych przycisków
+            child=[
+                side_panel_left_toggle_button,
+                app_list_left_toggle_button,
+                weather_bar_item,
+            ]
+        )
+
+
+
         running_apps_bar = RunningAppsBar()
 
         super().__init__(
@@ -38,7 +57,7 @@ class Bar(Widget.Window):
             child=Widget.CenterBox(
                 css_classes=["bar-widget"],
                 start_widget=Widget.Box(
-                    child=[side_panel_left_toggle_button, app_list_left_toggle_button, running_apps_bar],
+                    child=[left_controls_group, running_apps_bar],
                     spacing=5
                 ),
                 center_widget=Widget.Box(child=[Workspaces()]),

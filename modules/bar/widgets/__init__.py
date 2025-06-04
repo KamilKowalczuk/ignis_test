@@ -5,7 +5,8 @@ from .kb_layout import KeyboardLayout
 from .battery import Battery
 # from .apps import Apps # Prawdopodobnie już niepotrzebne, jeśli 'Apps' było tylko dla przypiętych
 from .workspaces import Workspaces
-from .running_apps_bar import RunningAppsBar # Dodaj ten import
+from .running_apps_bar import RunningAppsBar
+from .weather_bar_widget import WeatherBarWidget
 
 __all__ = [
     "StatusPill",
@@ -13,5 +14,6 @@ __all__ = [
     "KeyboardLayout",
     "Battery",
     "Workspaces",
-    "RunningAppsBar", # Dodaj do __all__
+    "RunningAppsBar", 
+    "WeatherBarWidget",
 ]

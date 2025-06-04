@@ -241,25 +241,164 @@
 	//   font-weight: normal;
 	// }
 }
-.info-grid { // Jeśli nadal używasz siatki dla innych sekcji
-    // ... style dla siatki ...
-    .info-label { 
-        color: $onSurfaceVariant;
-        margin-right: 0.5rem; 
-    }
+.info-grid {
+	// Jeśli nadal używasz siatki dla innych sekcji
+	// ... style dla siatki ...
+	.info-label {
+		color: $onSurfaceVariant;
+		margin-right: 0.5rem;
+	}
 }
 
 // Style dla nowej sekcji dysków (która używa Boxów, a nie Grid)
-.disk-label { // Dla etykiet typu "Dysk 1 (Kingston):"
-    color: $onSurfaceVariant;
-    margin-right: 0.5rem;
+.disk-label {
+	// Dla etykiet typu "Dysk 1 (Kingston):"
+	color: $onSurfaceVariant;
+	margin-right: 0.5rem;
 }
 
 // .disk-value { // Dla wartości np. "Wolne: 123.4 GB z 500.0 GB"
 //     // Domyślny kolor tekstu będzie OK
 // }
 
-.error-text { // Dla komunikatów o błędach odczytu dysku
-    color: $error; // Użyj koloru błędu z Twojej palety
-    font-style: italic;
+.error-text {
+	// Dla komunikatów o błędach odczytu dysku
+	color: $error; // Użyj koloru błędu z Twojej palety
+	font-style: italic;
+}
+
+.weather-view {
+	padding: 1rem; // Ogólny padding dla całego widoku
+
+	.weather-input-box {
+		// Styl dla kontenera z polem wprowadzania i przyciskiem odświeżania
+		// Można dodać tło, zaokrąglenia itp., jeśli chcesz go wyróżnić
+		// np. background-color: $surfaceContainer; border-radius: $large-radius; padding: 0.5rem;
+		margin-bottom: 1rem; // Odstęp pod input boxem
+	}
+
+	.weather-city-entry {
+		// Ignis Widget.Entry może dziedziczyć style systemowe lub z MaterialService
+		// Można dostosować, jeśli potrzebne
+		min-height: 2.5rem;
+		// border-radius: $medium-radius; // Jeśli nie ma globalnego stylu dla Entry
+	}
+
+	.weather-refresh-btn {
+		// Używa klas "flat" i "circular" z Ignis dla przycisków tylko z ikoną
+		// Można dostosować rozmiar, jeśli standardowy jest za mały/duży
+		min-width: 2.5rem;
+		min-height: 2.5rem;
+	}
+
+	.current-weather-section {
+		// Klasa dla Widget.Box z aktualną pogodą
+		// Styl "karty" - może mieć tło, zaokrąglenia, cień
+		background-color: $surfaceContainerHigh; // Lekko podniesiona karta
+		padding: 1rem;
+		border-radius: 1.2rem; // Duże zaokrąglenie
+		// box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Delikatny cień
+		margin-bottom: 1rem;
+	}
+
+	.weather-city-time {
+		font-size: 1.2rem;
+		font-weight: 500; // Medium weight
+		color: $onSurface;
+		margin-bottom: 0.25rem;
+	}
+
+	.weather-current-icon {
+		// Rozmiar ustawiony w Pythonie (pixel_size=80)
+		// Kolor powinien być dziedziczony lub ustawiony w zależności od ikony
+		// (symboliczne vs kolorowe z API)
+		margin-right: 0.5rem; // Odstęp od temperatury
+	}
+
+	.weather-current-temp {
+		font-size: 3.5rem; // Bardzo duża temperatura
+		font-weight: 200; // Thin/Light weight
+		color: $onSurface;
+		// Można dodać letter-spacing: -2px; dla ciaśniejszego wyglądu dużych cyfr
+	}
+
+	.weather-current-desc {
+		font-size: 1.1rem;
+		color: $onSurfaceVariant;
+		margin-top: -0.5rem; // Zmniejsz odstęp pod temperaturą
+		margin-bottom: 0.25rem;
+	}
+
+	.weather-sub-info {
+		// Dla "Odczuwalna: ..."
+		font-size: 0.9rem;
+		color: $onSurfaceVariant;
+	}
+
+	.weather-details-grid {
+		// Siatka ze szczegółami
+		// Styl "karty"
+		background-color: $surfaceContainer; // Inny odcień tła
+		padding: 0.8rem 1rem;
+		border-radius: 1rem;
+		margin-top: 0.5rem;
+		margin-bottom: 1rem;
+
+		.weather-detail-label {
+			color: $onSurfaceVariant;
+			font-size: 0.9rem;
+		}
+		.weather-detail-value {
+			font-weight: 500; // Medium
+			font-size: 0.9rem;
+		}
+	}
+
+	.forecast-title {
+		// Dla "Prognoza na kolejne dni:"
+		// Już ma .h3, ale można dodać więcej
+		margin-bottom: 0.75rem;
+	}
+
+
+// .daily-forecast-scroll {
+//     // Możesz chcieć ustawić min-height lub inne, jeśli potrzeba
+//     // np. min-height: 10rem; 
+// }
+
+.daily-forecast-grid {
+    // Style dla siatki prognozy, jeśli są potrzebne
+    // np. padding dla całej siatki
+    padding-top: 0.5rem;
+}
+
+.daily-forecast-item {
+    // Style dla pojedynczego dnia w siatce prognozy
+    // background-color: $surfaceContainerLow; // Jeśli chcesz tło dla każdej komórki
+    padding: 0.6rem 0.2rem; // Mniejszy padding horyzontalny, bo są 2 kolumny
+    border-radius: 0.8rem;
+    // min-width nie jest już tak potrzebne, bo siatka zarządza szerokością kolumn
+    // text-align usunięte, użyj halign na Labelach/Icon
+
+    .forecast-day-name {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+    }
+
+    .forecast-day-temp {
+        font-size: 0.95rem; // Można zmniejszyć, jeśli brakuje miejsca
+        font-weight: bold;
+        margin-top: 0.25rem;
+    }
+    .forecast-pop {
+        font-size: 0.75rem;
+        color: $primary; // Lub inny kolor dla prawdopodobieństwa opadów
+    }
+}
+
+	.placeholder-text {
+		color: $onSurfaceVariant;
+		font-size: 1rem;
+	}
 }

@@ -1,194 +1,282 @@
 .bar-widget {
-    padding: 0.4rem 1rem;
-    margin: 0;
-    border-radius: 0;
-    transition: 0.3s;
-    background-color: rgba($surface, 0.3);
+	padding: 0.4rem 1rem;
+	margin: 0;
+	border-radius: 0;
+	transition: 0.3s;
+	background-color: rgba($surface, 0.3);
 }
 
 .clock {
-    @include hover($surface);
-    color: $onSurface;
-    background-color: $surface;
-    font-size: 1.5rem;
-    border-radius: 1rem;
-    padding: 0 0.75rem;
-    margin: 0 0.5rem;
-    margin-right: 0;
-    transition: 0.3s;
+	@include hover($surface);
+	color: $onSurface;
+	background-color: $surface;
+	font-size: 1.5rem;
+	border-radius: 1rem;
+	padding: 0 0.75rem;
+	margin: 0 0.5rem;
+	margin-right: 0;
+	transition: 0.3s;
 
-    &.active {
-        background-color: $primary;
-        color: $surface;
+	&.active {
+		background-color: $primary;
+		color: $surface;
 
-        .record-indicator {
-            color: $surface;
-        }
+		.record-indicator {
+			color: $surface;
+		}
 
-        @include hover($primary)
-    }
+		@include hover($primary);
+	}
 }
 
 .kb-layout {
-    border-radius: 0.5rem;
-    padding: 0 0.25rem;
-    margin: 0 0.25rem;
-    transition: 0.3s;
-    font-size: 1.3rem;
+	border-radius: 0.5rem;
+	padding: 0 0.25rem;
+	margin: 0 0.25rem;
+	transition: 0.3s;
+	font-size: 1.3rem;
 }
 
 .kb-layout:hover {
-    background-color: rgba(white, 0.2);
+	background-color: rgba(white, 0.2);
 }
 
 .pinned-app {
-    margin: 0 0.25rem;
-    transition: 0.3s;
-    padding: 0 0.1rem;
-    border-radius: 0.25rem;
+	margin: 0 0.25rem;
+	transition: 0.3s;
+	padding: 0 0.1rem;
+	border-radius: 0.25rem;
 }
 
 .pinned-app:hover {
-    background-color: rgba(white, 0.2);
+	background-color: rgba(white, 0.2);
 }
 
-
 .tray {
-    padding: 0 0.25rem;
-    margin: 0 0.25rem;
+	padding: 0 0.25rem;
+	margin: 0 0.25rem;
 }
 
 .workspaces {
-    border-radius: 1rem;
-    padding: 0.5rem;
-    background-color: $surface;
-    margin: 0 0.5rem;
-    margin-left: 0;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	background-color: $surface;
+	margin: 0 0.5rem;
+	margin-left: 0;
 }
 
 .workspace {
-    @include hover($primaryContainer);
-    border-radius: 1rem;
-    margin: 0 0.25rem;
-    min-width: 0.7rem;
-    min-height: 0.7rem;
-    transition: 0.3s;
+	@include hover($primaryContainer);
+	border-radius: 1rem;
+	margin: 0 0.25rem;
+	min-width: 0.7rem;
+	min-height: 0.7rem;
+	transition: 0.3s;
 
-    &.active {
-        @include hover($primary);
-        min-width: 2rem;
-    }
+	&.active {
+		@include hover($primary);
+		min-width: 2rem;
+	}
 }
 
 @keyframes recorder-animation {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    50% {
-        opacity: 1;
-    }
+	50% {
+		opacity: 1;
+	}
 
-    90% {
-        opacity: 1;
-    }
+	90% {
+		opacity: 1;
+	}
 
-    100% {
-        opacity: 0;
-    }
+	100% {
+		opacity: 0;
+	}
 }
 
 .record-indicator {
-    color: $error;
+	color: $error;
 }
 
 .record-indicator.active {
-    animation: recorder-animation 2s infinite;
+	animation: recorder-animation 2s infinite;
 }
 
 .battery-item {
-    margin: 0 0.25rem;
+	margin: 0 0.25rem;
 }
 
 .battery-scale {
-    min-width: 5rem;
-    all: unset;
+	min-width: 5rem;
+	all: unset;
 
-    * {
-        all: unset;
-    }
+	* {
+		all: unset;
+	}
 }
 
 .battery-scale trough,
 .battery-scale trough highlight {
-    background: $surface;
-    border-radius: 1rem;
-    min-height: 1.3rem;
-    min-width: 5rem;
+	background: $surface;
+	border-radius: 1rem;
+	min-height: 1.3rem;
+	min-width: 5rem;
 }
 
 .battery-scale trough highlight {
-    background: $primary;
+	background: $primary;
 }
 
 .battery-icon {
-    color: $onSurface;
-    margin-right: 0.3rem;
+	color: $onSurface;
+	margin-right: 0.3rem;
 }
 
 .battery-percent {
-    color: $onSurface;
-    margin-right: 0.3rem;
+	color: $onSurface;
+	margin-right: 0.3rem;
 }
 .running-apps-bar-container {
-    padding: 0 0.1rem; 
+	padding: 0 0.1rem;
 }
 
 .workspace-group {
-    background-color: rgba($surfaceContainer, 0.2); 
-    border-radius: 0.5rem;
-    padding: 0.1rem 0.2rem; 
-    margin: 0 0.05rem;    
-    min-height: 1.5rem; // Upewnij się, że grupa ma jakąś wysokość
-    // align-items: center; // USUNIĘTE - GTK.Box inaczej zarządza wyrównaniem.
-                           // Aby wyśrodkować elementy w pionie wewnątrz tej grupy (Widget.Box),
-                           // ustaw `valign="center"` na WIDGETACH dzieci (RunningAppButton) w kodzie Pythona.
-                           // Widget.Box domyślnie układa elementy w rzędzie (horizontal).
+	background-color: rgba($surfaceContainer, 0.2);
+	border-radius: 0.5rem;
+	padding: 0.1rem 0.2rem;
+	margin: 0 0.05rem;
+	min-height: 1.5rem; // Upewnij się, że grupa ma jakąś wysokość
+	// align-items: center; // USUNIĘTE - GTK.Box inaczej zarządza wyrównaniem.
+	// Aby wyśrodkować elementy w pionie wewnątrz tej grupy (Widget.Box),
+	// ustaw `valign="center"` na WIDGETACH dzieci (RunningAppButton) w kodzie Pythona.
+	// Widget.Box domyślnie układa elementy w rzędzie (horizontal).
 }
 
 .running-app-button {
-    padding: 0.2rem;        
-    margin: 0 0.1rem;       
-    border-radius: 0.25rem;
-    transition: background-color 0.15s ease-in-out;
-    min-width: 1.5rem; 
-    min-height: 1.5rem;
-    // Aby ikona wewnątrz przycisku była wyśrodkowana,
-    // Widget.Icon (będący dzieckiem Widget.Button) powinien mieć
-    // halign="center" i valign="center" ustawione w Pythonie.
+	padding: 0.2rem;
+	margin: 0 0.1rem;
+	border-radius: 0.25rem;
+	transition: background-color 0.15s ease-in-out;
+	min-width: 1.5rem;
+	min-height: 1.5rem;
+	// Aby ikona wewnątrz przycisku była wyśrodkowana,
+	// Widget.Icon (będący dzieckiem Widget.Button) powinien mieć
+	// halign="center" i valign="center" ustawione w Pythonie.
 
-    image { // Celuje w GtkImage wewnątrz Widget.Icon
-        -gtk-icon-size: 1rem; // Ustawia rozmiar samej ikony, jeśli pixel_size w Pythonie nie wystarcza
-    }
+	image {
+		// Celuje w GtkImage wewnątrz Widget.Icon
+		-gtk-icon-size: 1rem; // Ustawia rozmiar samej ikony, jeśli pixel_size w Pythonie nie wystarcza
+	}
 
-    &:hover {
-        background-color: rgba($onSurface, 0.15);
-    }
+	&:hover {
+		background-color: rgba($onSurface, 0.15);
+	}
 
-    // &.active { // Styl dla aktywnego przycisku (podświetlenie)
-    //     background-color: $primary; 
-    //     image { // Zmiana koloru ikony, gdy przycisk jest aktywny
-    //         color: $onPrimary; 
-    //     }
-    // }
+	// &.active { // Styl dla aktywnego przycisku (podświetlenie)
+	//     background-color: $primary;
+	//     image { // Zmiana koloru ikony, gdy przycisk jest aktywny
+	//         color: $onPrimary;
+	//     }
+	// }
 }
 
 .running-apps-workspace-separator {
-    background-color: rgba($outline, 0.35);
-    min-width: 1px; 
-    // align-self: stretch; // USUNIĘTE - Gtk.Separator pionowy w poziomym Gtk.Box
-                           // powinien domyślnie rozciągnąć się na dostępną wysokość.
-                           // Jeśli nie, upewnij się, że kontener rodzic (RunningAppsBar)
-                           // ma określoną wysokość lub jego dzieci ją wymuszają.
-                           // Można też ustawić `vexpand=True` na separatorze w Pythonie.
+	background-color: rgba($outline, 0.35);
+	min-width: 5px;
+	// align-self: stretch; // USUNIĘTE - Gtk.Separator pionowy w poziomym Gtk.Box
+	// powinien domyślnie rozciągnąć się na dostępną wysokość.
+	// Jeśli nie, upewnij się, że kontener rodzic (RunningAppsBar)
+	// ma określoną wysokość lub jego dzieci ją wymuszają.
+	// Można też ustawić `vexpand=True` na separatorze w Pythonie.
 }
+.weather-bar-widget {
+	// Dziedziczy style z .bar-button, ale można dodać specyficzne
+	// padding: 0.2rem 0.4rem; // Mniejszy padding niż standardowe przyciski
+
+	.widget-box {
+		// Celujemy w wewnętrzny content_box
+		// spacing: 0.3rem; // Mały odstęp między ikoną a temperaturą
+		> *:not(:last-child) {
+			margin-right: 0.1rem; // Mały odstęp między ikoną a temperaturą
+		}
+	}
+
+	image {
+		// Ikona pogody
+		font-size: 1.1rem; // Lub użyj pixel_size w Pythonie
+		color: $onSurface; // Jeśli ikona jest symboliczna
+	}
+
+	label {
+		// Etykieta temperatury
+		font-size: 0.9rem;
+		font-weight: bold;
+	}
+}
+
+$left-controls-group-padding: 0.2rem; // Padding wewnętrzny całej pastylki-grupy
+$control-button-internal-padding-y: 0.00001rem; // Padding góra/dół dla każdego przycisku
+$control-button-internal-padding-x: 0.5rem; // Padding lewo/prawo dla każdego przycisku
+$control-button-margin-x: 0.15rem;         // Margines między przyciskami
+
+.left-panel-controls-group {
+    background-color: $surface; 
+    border-radius: 1.5rem; // Zaokrąglenie grupy
+    padding: $left-controls-group-padding;
+    margin-right: 0.5rem; 
+    // align-items: center; // Pamiętaj, że to nie działa. Użyj valign="center" na dzieciach w Pythonie.
+}
+
+// Wspólne style dla wszystkich przycisków wewnątrz grupy-pastylki
+.left-panel-control-button {
+    background-color: transparent;
+    // Użyj calc, aby wewnętrzne zaokrąglenie pasowało do zewnętrznego
+    border-radius: calc(1.5rem - #{$left-controls-group-padding}); // Np. 1.5rem - 0.2rem = 1.3rem
+    padding: $control-button-internal-padding-y $control-button-internal-padding-x;
+    margin: 0 $control-button-margin-x;
+    min-height: 1.8rem; // Ustaw wspólną minimalną wysokość (dostosuj)
+                        // Powinna być nieco większa niż rozmiar ikony + padding Y
+    min-width: 1.8rem;  // Ustaw wspólną minimalną szerokość dla przycisków z tylko ikoną
+
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+
+    // Domyślne style dla ikon i etykiet w tych przyciskach
+    image, // Ikony w Widget.Icon
+    .weather-bar-icon, // Ikona w WeatherBarWidget (jeśli ma tę klasę)
+    .weather-bar-temp { // Etykieta w WeatherBarWidget (jeśli ma tę klasę)
+        color: $onSurface;
+    }
+    
+    // Rozmiary ikon można kontrolować przez pixel_size w Pythonie lub font-size tutaj
+    image, .weather-bar-icon {
+        font-size: 1.1rem; // Dostosuj do pixel_size w Pythonie
+    }
+    .weather-bar-temp {
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    &:hover {
+        background-color: rgba($onSurfaceVariant, 0.12); 
+        image, .weather-bar-icon, .weather-bar-temp {
+            color: $onSurfaceVariant; 
+        }
+    }
+}
+
+// WeatherBarWidget ma wewnętrzny Widget.Box.
+// Jeśli ten Box ma własny padding/margin, może to psuć wyrównanie.
+// Klasa .weather-bar-widget jest już na samym przycisku.
+// Jeśli wewnętrzny box ma klasę, np. .weather-bar-content-box:
+// .weather-bar-widget > .weather-bar-content-box { 
+//     // spacing jest ustawiony w Pythonie, nie ma tu paddingu ani marginesu,
+//     // więc powinien dobrze współgrać z paddingiem przycisku-rodzica.
+// }
