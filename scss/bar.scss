@@ -218,13 +218,13 @@
 }
 
 $left-controls-group-padding: 0.2rem; // Padding wewnętrzny całej pastylki-grupy
-$control-button-internal-padding-y: 0.00001rem; // Padding góra/dół dla każdego przycisku
+$control-button-internal-padding-y: 0; // Padding góra/dół dla każdego przycisku
 $control-button-internal-padding-x: 0.5rem; // Padding lewo/prawo dla każdego przycisku
 $control-button-margin-x: 0.15rem;         // Margines między przyciskami
 
 .left-panel-controls-group {
     background-color: $surface; 
-    border-radius: 1.5rem; // Zaokrąglenie grupy
+    border-radius: 1rem; // Zaokrąglenie grupy
     padding: $left-controls-group-padding;
     margin-right: 0.5rem; 
     // align-items: center; // Pamiętaj, że to nie działa. Użyj valign="center" na dzieciach w Pythonie.
@@ -234,10 +234,10 @@ $control-button-margin-x: 0.15rem;         // Margines między przyciskami
 .left-panel-control-button {
     background-color: transparent;
     // Użyj calc, aby wewnętrzne zaokrąglenie pasowało do zewnętrznego
-    border-radius: calc(1.5rem - #{$left-controls-group-padding}); // Np. 1.5rem - 0.2rem = 1.3rem
+    border-radius: calc(1.1rem - #{$left-controls-group-padding}); // Np. 1.5rem - 0.2rem = 1.3rem
     padding: $control-button-internal-padding-y $control-button-internal-padding-x;
     margin: 0 $control-button-margin-x;
-    min-height: 1.8rem; // Ustaw wspólną minimalną wysokość (dostosuj)
+    min-height: 1rem; // Ustaw wspólną minimalną wysokość (dostosuj)
                         // Powinna być nieco większa niż rozmiar ikony + padding Y
     min-width: 1.8rem;  // Ustaw wspólną minimalną szerokość dla przycisków z tylko ikoną
 

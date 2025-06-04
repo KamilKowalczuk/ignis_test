@@ -28,8 +28,12 @@ Utils.exec_sh("hyprctl reload")
 
 ControlCenter()
 
-for monitor in range(Utils.get_n_monitors()):
-    Bar(monitor)
+# for monitor in range(Utils.get_n_monitors()): # dla wielu monitoróœ
+#     Bar(monitor)
+if Utils.get_n_monitors() > 0:  # Upewnij się, że jest co najmniej jeden monitor
+    Bar(1)  # Tworzy Bar tylko dla monitora o ID 1
+else:
+    print("Nie wykryto żadnych monitorów, Bar nie zostanie utworzony.")
 
 for monitor in range(Utils.get_n_monitors()):
     NotificationPopup(monitor)
