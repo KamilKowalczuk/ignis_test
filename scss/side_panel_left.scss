@@ -56,55 +56,142 @@
 
 // Style dla AppLauncherView
 .app-launcher-view {
-	padding: 0.55rem; // <<<--- TUTAJ USTAW PADDING (np. 0.75rem to ok. 12px, 10px to ok. 0.625rem)
-}
+	padding: 0.5rem;
 
-.app-launcher-view-search-box {
-	padding: 0.3rem 0.55rem;
-	background-color: $surfaceContainerHigh;
-	border-radius: 1.5rem;
-	// margin-bottom: 0.75rem; // Usunięto, bo search_entry ma teraz margin_bottom
-	// Można też ustawić margin na tym kontenerze, jeśli potrzeba
-
-	image {
-		color: $onSurfaceVariant;
-	}
-}
-.app-launcher-view-search-entry {
-	// Gtk.Entry może potrzebować specyficznych stylów, jeśli domyślne nie pasują
-	// np. usunięcie ramki, zmiana tła
-	background-color: transparent;
-	border: none;
-	caret-color: $primary; // Kolor kursora
-	color: $onSurface;
-	font-size: 1rem;
-}
-
-// .app-launcher-view-scroll {
-//     // Można dodać style dla paska przewijania, jeśli standardowy nie pasuje
-// }
-
-.app-launcher-view-item {
-	padding: 0.3rem 0.55rem;
-	border-radius: 0.75rem; // Zaokrąglenie dla elementów listy
-	transition: background-color 0.15s ease-in-out;
-	margin-bottom: 0.25rem; // Mały odstęp między elementami
-
-	&:hover {
-		background-color: rgba($onSurface, 0.08);
+	// Pole wyszukiwania
+	searchentry {
+		margin-bottom: 0.5rem;
 	}
 
-	.app-launcher-view-item-label {
-		font-size: 0.95rem;
-		margin-left: 0.5rem;
+	// Kontener zakładek ("pigułka")
+	stackswitcher {
+		margin: 0.25rem 0 0.75rem;
+		padding: 0.25rem;
+		border-radius: 99rem;
+		background-color: $surfaceVariant;
+
+		button {
+			background: none;
+			border: none;
+			outline: none;
+			box-shadow: none;
+			color: $onSurfaceVariant;
+			font-weight: 500;
+			padding: 0.375rem 1rem;
+			border-radius: 99rem;
+			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+			&:checked {
+				background-color: $primary;
+				color: $onPrimary;
+			}
+
+			&:hover:not(:checked) {
+				color: $onSurface;
+				background-color: rgba($onSurface, 0.08);
+			}
+		}
+	}
+
+	// Wspólne style dla siatek aplikacji
+	.app-grid {
+		.app-grid-item {
+			padding: 0.5rem;
+			border-radius: 0.75rem;
+			transition: background-color 0.15s ease-in-out, outline 0.15s ease-in-out;
+			outline: 1px solid transparent; // Użycie 'px' jest najbezpieczniejsze
+
+			&:hover {
+				background-color: rgba($onSurface, 0.12);
+			}
+		}
+
+		// Styl dla zaznaczonego elementu w siatce "Wszystkie"
+		flowboxchild:selected .app-grid-item {
+			background-color: rgba($primary, 0.15);
+			outline-color: $primary;
+		}
 	}
 }
 
-.app-launcher-view-no-results {
-	color: $onSurfaceVariant;
-	margin-top: 2rem;
+// Style dla widoku Kategorii (Filar 2)
+.categories-view {
+	padding: 0 0.25rem;
+
+	// Pasek z przyciskami Rozwiń/Zwiń
+	.categories-action-bar {
+		padding: 0 0.5rem 0.5rem;
+
+		button {
+			padding: 0.25rem;
+			min-height: 0;
+			min-width: 0;
+			border-radius: 99rem;
+		}
+	}
+
+	.category-expander {
+		margin-bottom: 0.5rem;
+		border-radius: 1rem;
+		background-color: $surfaceContainer;
+		border: 1px solid $surfaceContainerHighest;
+
+		// Nagłówek (pasek do klikania)
+		header {
+			border-radius: 1rem;
+			padding: 0.75rem 0.5rem;
+			// Usunięto problematyczne właściwości ramki, aby zapewnić kompatybilność
+		}
+
+		&:checked header {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			// Dodajemy ramkę w stanie rozwiniętym w bezpieczny sposób
+			border-bottom: 1px solid $outlineVariant;
+		}
+
+		// Siatka wewnątrz
+		.app-grid {
+			padding: 0.75rem;
+			background-color: $surface;
+			border-bottom-left-radius: 1rem;
+			border-bottom-right-radius: 1rem;
+		}
+	}
 }
-// ... (istniejące style dla side_panel_left) ...
+.categories-view {
+	padding: 0 0.25rem;
+
+	.category-expander {
+		margin-bottom: 0.5rem;
+		border-radius: 0.75rem;
+
+		header {
+			border-radius: 0.75rem;
+			border-bottom-width: 1px; // Użycie 'px' jest tutaj najbezpieczniejsze dla parsera GTK
+			border-bottom-style: solid;
+			border-bottom-color: transparent;
+			padding: 0.75rem;
+			// KOREKTA: Usunięcie problematycznej linii
+			// min-height: auto;
+		}
+
+		image.expander-arrow {
+			color: $onSurfaceVariant;
+		}
+
+		&:checked header {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom-color: $outlineVariant;
+		}
+
+		.app-grid {
+			padding: 0.75rem;
+			border-top: none;
+		}
+	}
+}
 
 .weather-view {
 	padding: 0.75rem; // <<<--- PADDING USTAWIONY TUTAJ (np. 0.75rem to ok. 12px, 15px to ok. 0.9375rem)
@@ -360,45 +447,8 @@
 		margin-bottom: 0.75rem;
 	}
 
-
-// .daily-forecast-scroll {
-//     // Możesz chcieć ustawić min-height lub inne, jeśli potrzeba
-//     // np. min-height: 10rem; 
-// }
-
-.daily-forecast-grid {
-    // Style dla siatki prognozy, jeśli są potrzebne
-    // np. padding dla całej siatki
-    padding-top: 0.5rem;
-}
-
-.daily-forecast-item {
-    // Style dla pojedynczego dnia w siatce prognozy
-    // background-color: $surfaceContainerLow; // Jeśli chcesz tło dla każdej komórki
-    padding: 0.6rem 0.2rem; // Mniejszy padding horyzontalny, bo są 2 kolumny
-    border-radius: 0.8rem;
-    // min-width nie jest już tak potrzebne, bo siatka zarządza szerokością kolumn
-    // text-align usunięte, użyj halign na Labelach/Icon
-
-    .forecast-day-name {
-        font-size: 0.85rem;
-        font-weight: 500;
-        margin-bottom: 0.25rem;
-    }
-
-    .forecast-day-temp {
-        font-size: 0.95rem; // Można zmniejszyć, jeśli brakuje miejsca
-        font-weight: bold;
-        margin-top: 0.25rem;
-    }
-    .forecast-pop {
-        font-size: 0.75rem;
-        color: $primary; // Lub inny kolor dla prawdopodobieństwa opadów
-    }
-}
-
-	.placeholder-text {
-		color: $onSurfaceVariant;
-		font-size: 1rem;
-	}
+	// .daily-forecast-scroll {
+	//     // Możesz chcieć ustawić min-height lub inne, jeśli potrzeba
+	//     // np. min-height: 10rem;
+	// }
 }
