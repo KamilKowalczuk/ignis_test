@@ -86,7 +86,7 @@ class EthernetButton(QSButton):
         menu = EthernetMenu()
 
         super().__init__(
-            label="Wired",
+            label="Przewodowe",
             icon_name="network-wired-symbolic",
             on_activate=lambda x: menu.toggle(),
             on_deactivate=lambda x: menu.toggle(),

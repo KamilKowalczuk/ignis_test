@@ -32,7 +32,7 @@ class ScreenshotLayout(Widget.Box):
                     ],
                 ),
                 Widget.Label(
-                    label="Screenshot saved",
+                    label="Zapisano zrzut ekranu",
                     css_classes=["notification-screenshot-label"],
                 ),
                 Widget.Box(

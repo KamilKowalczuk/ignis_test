@@ -7,7 +7,7 @@ class DarkModeButton(QSButton):
 
     def __init__(self):
         super().__init__(
-            label="Dark",
+            label="Tryb ciemny",
             icon_name="night-light-symbolic",
             on_activate=lambda x: user_options.material.set_dark_mode(True),
             on_deactivate=lambda x: user_options.material.set_dark_mode(False),

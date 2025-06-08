@@ -24,7 +24,7 @@ class RecordMenu(Menu):
                     css_classes=["record-icon"],
                 ),
                 Widget.Label(
-                    label="Start recording?",
+                    label="Rozpoczać nagrywanie?",
                     halign="center",
                     style="font-size: 1.2rem;",
                 ),
@@ -40,7 +40,7 @@ class RecordMenu(Menu):
                             vertical=True,
                             child=[
                                 Widget.Label(
-                                    label="Record audio",
+                                    label="Nagraj audio",
                                     style="font-size: 1.1rem;",
                                     halign="start",
                                 ),
@@ -93,7 +93,7 @@ class RecordButton(QSButton):
         record_menu = RecordMenu()
 
         super().__init__(
-            label="Recording",
+            label="Nagrywanie",
             icon_name="media-record-symbolic",
             on_activate=lambda x: record_menu.toggle(),
             on_deactivate=lambda x: recorder.stop_recording(),

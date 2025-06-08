@@ -28,7 +28,7 @@ class PowermenuButton(Widget.Box):
 class PowerOffButton(PowermenuButton):
     def __init__(self):
         super().__init__(
-            label="Power off",
+            label="Wyłącz",
             icon_name="system-shutdown-symbolic",
             on_click=lambda *args: create_exec_task("poweroff"),
         )
@@ -46,7 +46,7 @@ class RebootButton(PowermenuButton):
 class SuspendButton(PowermenuButton):
     def __init__(self):
         super().__init__(
-            label="Suspend", icon_name="night-light-symbolic", on_click=self.__invoke
+            label="Uśpij", icon_name="night-light-symbolic", on_click=self.__invoke
         )
 
     def __invoke(self, *args) -> None:
@@ -57,7 +57,7 @@ class SuspendButton(PowermenuButton):
 class HyprlandExitButton(PowermenuButton):
     def __init__(self):
         super().__init__(
-            label="Sign out",
+            label="Wyloguj się",
             icon_name="system-log-out-symbolic",
             on_click=lambda *args: create_exec_task("hyprctl dispatch exit 0"),
         )

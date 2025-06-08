@@ -35,8 +35,9 @@ if Utils.get_n_monitors() > 0:  # Upewnij się, że jest co najmniej jeden monit
 else:
     print("Nie wykryto żadnych monitorów, Bar nie zostanie utworzony.")
 
-for monitor in range(Utils.get_n_monitors()):
-    NotificationPopup(monitor)
+if Utils.get_n_monitors() > 0:
+    # Tworzymy popup tylko dla monitora głównego (ID 0)
+    NotificationPopup(1)
 
 Launcher()
 Powermenu()

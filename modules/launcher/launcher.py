@@ -143,7 +143,7 @@ class SearchWebButton(Widget.Button):
             label = f"Visit {query}"
             self._url = query
         else:
-            label = "Search in Google"
+            label = "Wyszukaj w sieci"
             self._url = f"https://www.google.com/search?q={query.replace(' ', '+')}"
         super().__init__(
             on_click=lambda x: self.launch(),
@@ -171,7 +171,7 @@ class Launcher(Widget.Window):
         )
         self._entry = Widget.Entry(
             hexpand=True,
-            placeholder_text="Search",
+            placeholder_text="Szukaj",
             css_classes=["launcher-search"],
             on_change=self.__search,
             on_accept=self.__on_accept,

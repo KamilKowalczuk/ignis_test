@@ -1,5 +1,17 @@
 {
-    "app.zen_browser.zen.desktop": 2,
-    "code.desktop": 3,
-    "WebApp-Notion9320.desktop": 1
+    "app.zen_browser.zen.desktop": 21,
+    "code.desktop": 13,
+    "WebApp-Notion9320.desktop": 8,
+    "io.missioncenter.MissionCenter.desktop": 7,
+    "firefox.desktop": 3,
+    "org.coolercontrol.CoolerControl.desktop": 3,
+    "steam.desktop": 3,
+    "DaVinciResolve.desktop": 2,
+    "davinci-resolve.desktop": 3,
+    "insync.desktop": 12,
+    "spotify.desktop": 4,
+    "WebApp-Messenger8722.desktop": 3,
+    "anydesk.desktop": 1,
+    "org.mozilla.Thunderbird.desktop": 1,
+    "WebApp-Keep7089.desktop": 1
 }

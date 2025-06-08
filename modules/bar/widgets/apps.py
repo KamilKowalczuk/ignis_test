@@ -13,7 +13,7 @@ class AppItem(Widget.Button):
     def __init__(self, app: Application):
         menu = Widget.PopoverMenu(
             model=IgnisMenuModel(
-                IgnisMenuItem(label="Launch", on_activate=lambda x: app.launch()),
+                IgnisMenuItem(label="Uruchom", on_activate=lambda x: app.launch()),
                 IgnisMenuSeparator(),
                 *(
                     IgnisMenuItem(
@@ -22,7 +22,7 @@ class AppItem(Widget.Button):
                     for i in app.actions
                 ),
                 IgnisMenuSeparator(),
-                IgnisMenuItem(label="Unpin", on_activate=lambda x: app.unpin()),
+                IgnisMenuItem(label="Odepnij", on_activate=lambda x: app.unpin()),
             )
         )
 
