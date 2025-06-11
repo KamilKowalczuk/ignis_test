@@ -12,7 +12,7 @@ app = IgnisApp.get_default()
 
 class SidePanelLeft(Widget.RevealerWindow):
     __gtype_name__ = "SidePanelLeft"
-
+    
     def __init__(self):
         # ... (cała logika tworzenia navigation_column, content_stack, panel_content_box, revealer, overlay_background_button, overlay_container - BEZ ZMIAN) ...
         # --- Lewa kolumna nawigacyjna (bez zmian) ---
@@ -77,7 +77,7 @@ class SidePanelLeft(Widget.RevealerWindow):
             ]
         )
         # Ustawiamy żądaną szerokość na właściwej zawartości panelu
-        panel_content_box.props.width_request = 560 # Szerokość widocznej części panelu
+        panel_content_box.props.width_request = 620 # Szerokość widocznej części panelu
 
 
         revealer = Widget.Revealer(
@@ -113,10 +113,10 @@ class SidePanelLeft(Widget.RevealerWindow):
             visible=False,
             child=overlay_container,
             revealer=revealer, 
-            margin_top=50,    # Odstęp w pikselach od góry ekranu
-            margin_bottom=14, # Odstęp od dołu
-            margin_left=10,   # Odstęp od lewej
-            default_width=560, # <<<--- PRZYWRACAMY default_width na oknie
+            # margin_top=50,    # Odstęp w pikselach od góry ekranu
+            # margin_bottom=14, # Odstęp od dołu
+            # margin_left=10,   # Odstęp od lewej
+            default_width=620, # <<<--- PRZYWRACAMY default_width na oknie
             css_classes=["side-panel-left-window", "unset"],
             setup=self._initial_view_setup 
         )

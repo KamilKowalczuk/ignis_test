@@ -1,3 +1,4 @@
+# modules/bar/widgets/pill.py
 import datetime
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
@@ -9,6 +10,8 @@ from ignis.services.recorder import RecorderService
 from ignis.services.audio import AudioService
 from ..indicator_icon import IndicatorIcon, NetworkIndicatorIcon
 from ignis.options import options
+# --- NOWOŚĆ: Importujemy nasz globalny stan VPN ---
+from modules.control_center.widgets.quick_settings.vpn_state import praca_vpn_is_active
 
 network = NetworkService.get_default()
 notifications = NotificationService.get_default()
@@ -23,34 +26,42 @@ current_time = Variable(
     )
 )
 
-
 class WifiIcon(NetworkIndicatorIcon):
     def __init__(self):
         super().__init__(device_type=network.wifi, other_device_type=network.ethernet)
-
 
 class EthernetIcon(NetworkIndicatorIcon):
     def __init__(self):
         super().__init__(device_type=network.ethernet, other_device_type=network.wifi)
 
-
 class VpnIcon(IndicatorIcon):
+    # --- ZMIANA: Bindowanie do obu źródeł stanu VPN ---
     def __init__(self):
         super().__init__(
-            image=network.vpn.bind("icon_name"),
-            visible=network.vpn.bind("is_connected"),
+            image="network-vpn-symbolic", # Ikona jest statyczna
+            visible=False # Domyślnie ukryta
         )
+        # Nasłuchujemy na zmiany w obu źródłach
+        network.vpn.connect("notify::is-connected", self.update_visibility)
+        praca_vpn_is_active.connect("notify::value", self.update_visibility)
+        # Ustawiamy stan początkowy
+        self.update_visibility()
 
+    def update_visibility(self, *args):
+        is_nm_vpn_active = network.vpn.is_connected
+        is_praca_vpn_active = praca_vpn_is_active.value
+        self.props.visible = is_nm_vpn_active or is_praca_vpn_active
 
 class DNDIcon(IndicatorIcon):
+    # ... bez zmian
     def __init__(self):
         super().__init__(
             image="notification-disabled-symbolic",
             visible=options.notifications.bind("dnd"),
         )
 
-
 class RecorderIcon(IndicatorIcon):
+    # ... bez zmian
     def __init__(self):
         super().__init__(
             image="media-record-symbolic",
@@ -67,15 +78,15 @@ class RecorderIcon(IndicatorIcon):
         else:
             self.add_css_class("active")
 
-
 class VolumeIcon(IndicatorIcon):
+    # ... bez zmian
     def __init__(self):
         super().__init__(
             image=audio.speaker.bind("icon_name"),
         )
 
-
 class StatusPill(Widget.Button):
+    # ... bez zmian
     def __init__(self, monitor: int):
         self._monitor = monitor
         self._window: Widget.Window = app.get_window("ignis_CONTROL_CENTER")  # type: ignore

@@ -5,19 +5,25 @@
 //     // np. specyficzny box-shadow, jeśli jest potrzebny
 // }
 
+#ignis_SIDE_PANEL_LEFT {
+    background-color: transparent;
+}
+
 .side-panel-left-main-box {
 	background-color: $surfacetrans; // Użyj koloru tła z palety Material You
 	color: $onSurface;
 	border-radius: 1.5rem 1.5rem 1.5rem 1.5rem; // Dostosuj wartość rem (np. 1.2rem ~ 18-20px)
 	box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.15);
-	// border-radius: 0 $large-radius $large-radius 0; // Zaokrąglenie tylko prawych rogów, jeśli panel jest po lewej
-	// (dostosuj promienie)
+	padding: 1rem;
+	box-shadow: 0 0 4px 2px $shadow;
+	margin: 1rem;
+	margin-top: 3.8rem;
 }
 
 .side-panel-left-navigation-column {
 	// background-color: darken($surface, 3%); // Lekko ciemniejsze tło dla nawigacji (opcjonalnie)
 	padding: 0.5rem;
-	min-width: 3.5rem; // Szerokość kolumny nawigacyjnej
+	min-width: 3.7rem; // Szerokość kolumny nawigacyjnej
 
 	.side-panel-nav-button {
 		padding: 0.5rem;
@@ -44,6 +50,8 @@
 	}
 }
 
+
+
 .side-panel-separator {
 	background-color: $outlineVariant; // Kolor separatora
 	min-width: 1px;
@@ -52,6 +60,14 @@
 
 .side-panel-left-content-stack {
 	padding: 0.75rem; // Wewnętrzny padding dla obszaru zawartości
+}
+
+.side-panel-left-overlay-background {
+    background-color: transparent;
+}
+
+.click-catcher-window {
+    background-color: transparent;
 }
 
 // Style dla AppLauncherView
