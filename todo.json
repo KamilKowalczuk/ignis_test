@@ -1,0 +1,28 @@
+{
+    "active_list_index": "Prywatne",
+    "lists": [
+        {
+            "name": "Prywatne",
+            "tasks": [
+                {
+                    "text": "Dokończyć projekt Ignis",
+                    "done": true
+                },
+                {
+                    "text": "Test",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Praca",
+            "tasks": [
+                {
+                    "text": "praca",
+                    "done": false
+                }
+            ]
+        }
+    ],
+    "active_list_name": "Prywatne"
+}

@@ -1,7 +1,7 @@
 {
     "app.zen_browser.zen.desktop": 21,
-    "code.desktop": 20,
-    "WebApp-Notion9320.desktop": 11,
+    "code.desktop": 23,
+    "WebApp-Notion9320.desktop": 12,
     "io.missioncenter.MissionCenter.desktop": 7,
     "firefox.desktop": 3,
     "org.coolercontrol.CoolerControl.desktop": 4,
@@ -15,5 +15,8 @@
     "org.mozilla.Thunderbird.desktop": 2,
     "WebApp-Keep7089.desktop": 1,
     "org.remmina.Remmina.desktop": 1,
-    "surfshark.desktop": 2
+    "surfshark.desktop": 2,
+    "org.gnome.Calendar.desktop": 6,
+    "org.gnome.Settings.desktop": 1,
+    "libreoffice-writer.desktop": 1
 }

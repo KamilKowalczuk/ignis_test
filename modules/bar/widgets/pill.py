@@ -1,5 +1,6 @@
 # modules/bar/widgets/pill.py
 import datetime
+import locale
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
 from ignis.utils import Utils
@@ -13,6 +14,11 @@ from ignis.options import options
 # --- NOWOŚĆ: Importujemy nasz globalny stan VPN ---
 from modules.control_center.widgets.quick_settings.vpn_state import praca_vpn_is_active
 
+try:
+    locale.setlocale(locale.LC_TIME, 'pl_PL.UTF-8')
+except locale.Error:
+    print("Ostrzeżenie: Lokalizacja pl_PL.UTF-8 nie jest dostępna. Używam domyślnej.")
+
 network = NetworkService.get_default()
 notifications = NotificationService.get_default()
 recorder = RecorderService.get_default()
@@ -21,7 +27,7 @@ audio = AudioService.get_default()
 app = IgnisApp.get_default()
 
 current_time = Variable(
-    value=Utils.Poll(1000, lambda x: datetime.datetime.now().strftime("%H:%M")).bind(
+    value=Utils.Poll(1000, lambda x: datetime.datetime.now().strftime("%H:%M | %a, %d %b")).bind(
         "output"
     )
 )

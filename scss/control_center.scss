@@ -1,174 +1,325 @@
 .control-center {
-    @include window;
-    min-width: 35rem;
-    padding: 0;
+	@include window;
+	min-width: 43rem;
+	padding: 0;
 
-    .control-center-widget {
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .qs-main-box {
-        margin-top: 0.5rem;
-    }
-    
-    .user {
-        margin-top: 1rem;
-    }
-    
-    .qs-button {
-        @include hover($surfaceContainerHigh);
-        color: $onSurface;
-        min-height: 2.4rem;
-        border-radius: 1.2rem;
-        transition: 0.3s;
-        padding: 0.3rem 0.8rem;
-    
-        &.active {
-            @include hover($primary);
-            color: $surface;
-        }
-    
-    }
-    
-    .qs-button-label {
-        margin-left: 0.5rem;
-    }
-    
-    .control-center-menu {
-        background-color: $surfaceContainerHigh;
-        border-radius: 1rem;
-        padding: 1rem;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-    
-        separator {
-            margin: 0.5rem 0;
-        }
+	.control-center-widget {
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
 
-    }
-    .control-center-menu-last-row {
-        margin-bottom: 0;
-    }
-    
-    .record-icon {
-        color: $error;
-    }
-    
-    .record-dropdown {
-        button {
-            all: unset;
-            color: $onSurfaceVariant;
-            font-size: 0.9rem;
-        }
-    }
-    
-    .record-cancel-button,
-    .record-start-button {
-        color: $surface;
-        border-radius: 1rem;
-        padding: 0.25rem 0.75rem;
-        font-size: 0.95rem;
-        transition: 0.3s;
-    }
-    
-    .record-cancel-button {
-        @include hover($surfaceContainerHigh);
-        color: $onSurface;
-        border: 1px solid $primary;
-    }
-    
-    .record-start-button {
-        @include hover($primary);
-    }
-    
-    .volume-entry {
-        @include hover($surfaceContainerHigh);
-        transition: 0.3s;
-        border-radius: 1rem;
-        padding: 0.5rem 0.5rem;
-    }
-    
-    .volume-entry-list-header-label {
-        font-size: 1.35rem;
-        margin-left: 0.5rem;
-    }
-    
-    .volume-entry-list-header-box {
-        margin-bottom: 0.75rem;
-    }
-    
-    .user-name-box {
-        margin-left: 0.5rem;
-    }
-    
-    .user-name {
-        font-size: 1.2rem;
-    }
-    
-    .user-name-secondary {
-        color: $onSurfaceVariant;
-        font-size: 0.9rem;
-    }
-    
-    .user-settings {
-        @include hover($surfaceContainerHighest);
-        color: $onSurface;
-        border-radius: 2rem;
-        min-width: 2.35rem;
-        margin: 0.4rem 0rem;
-        margin-right: 0.5rem;
-        transition: 0.3s;
-    }
-    
-    .user-power {
-        @include hover($primary);
-        color: $surface;
-        border-radius: 1.5rem;
-        min-width: 2.35rem;
-        margin: 0.4rem 0rem;
-        transition: 0.3s;
-    }
-    
-    .network-header-box {
-        margin-bottom: 0.5rem;
-    }
-    
-    .network-header-label {
-        font-size: 1.35rem;
-        margin-left: 0.75rem;
-    }
-    
-    .network-item {
-        @include hover($surfaceContainerHigh);
-        transition: 0.3s;
-        border-radius: 1rem;
-        padding: 0.5rem 0.5rem;
+	.qs-main-box {
+		margin-top: 0.5rem;
+	}
 
-        label {
-            margin-left: 0.5rem;
-        }
+	.user {
+		margin-top: 1rem;
+	}
 
-        .connect-label {
-            font-size: 1rem;
-            color: $onSurfaceVariant;
-        }
-    }
-    
-    .volume-entry-label {
-        margin-left: 0.5rem;
-        margin-right: 1rem;
-    }
+	.qs-button {
+		@include hover($surfaceContainerHigh);
+		color: $onSurface;
+		min-height: 2.4rem;
+		border-radius: 1.2rem;
+		transition: 0.3s;
+		padding: 0.3rem 0.8rem;
 
-    .volume-mainbox-speaker {
-        margin-top: 1rem;
-    }
+		&.active {
+			@include hover($primary);
+			color: $surface;
+		}
+	}
 
-    .volume-mainbox-microphone {
-        margin-top: 0.25rem;
-    }
+	.qs-button-label {
+		margin-left: 0.5rem;
+	}
 
-    .volume-menubox-speaker {
-        margin-bottom: 0.75rem;
-    }
+	// --- ZMIANA: Dodano styl dla aktywnego przycisku w nawigacji ---
+	.cc-nav-button {
+		@include hover($surfaceContainerHigh);
+		color: $onSurfaceVariant;
+		border-radius: 1rem;
+		transition: 0.3s;
+		padding: 0.5rem;
+		font-size: 1.5rem;
+
+		&.active {
+			background-color: $primary;
+			color: $onPrimary;
+		}
+	}
+
+	.control-center-menu {
+		background-color: $surfaceContainerHigh;
+		border-radius: 1rem;
+		padding: 1rem;
+		margin-top: 1rem;
+		margin-bottom: 0.5rem;
+
+		separator {
+			margin: 0.5rem 0;
+		}
+	}
+	.control-center-menu-last-row {
+		margin-bottom: 0;
+	}
+
+	.record-icon {
+		color: $error;
+	}
+
+	.record-dropdown {
+		button {
+			all: unset;
+			color: $onSurfaceVariant;
+			font-size: 0.9rem;
+		}
+	}
+
+	.record-cancel-button,
+	.record-start-button {
+		color: $surface;
+		border-radius: 1rem;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.95rem;
+		transition: 0.3s;
+	}
+
+	.record-cancel-button {
+		@include hover($surfaceContainerHigh);
+		color: $onSurface;
+		border: 1px solid $primary;
+	}
+
+	.record-start-button {
+		@include hover($primary);
+	}
+
+	.volume-entry {
+		@include hover($surfaceContainerHigh);
+		transition: 0.3s;
+		border-radius: 1rem;
+		padding: 0.5rem 0.5rem;
+	}
+
+	.volume-entry-list-header-label {
+		font-size: 1.35rem;
+		margin-left: 0.5rem;
+	}
+
+	.volume-entry-list-header-box {
+		margin-bottom: 0.75rem;
+	}
+
+	.user-name-box {
+		margin-left: 0.5rem;
+	}
+
+	.user-name {
+		font-size: 1.2rem;
+	}
+
+	.user-name-secondary {
+		color: $onSurfaceVariant;
+		font-size: 0.9rem;
+	}
+
+	.user-settings {
+		@include hover($surfaceContainerHighest);
+		color: $onSurface;
+		border-radius: 2rem;
+		min-width: 2.35rem;
+		margin: 0.4rem 0rem;
+		margin-right: 0.5rem;
+		transition: 0.3s;
+	}
+
+	.user-power {
+		@include hover($primary);
+		color: $surface;
+		border-radius: 1.5rem;
+		min-width: 2.35rem;
+		margin: 0.4rem 0rem;
+		transition: 0.3s;
+	}
+
+	.network-header-box {
+		margin-bottom: 0.5rem;
+	}
+
+	.network-header-label {
+		font-size: 1.35rem;
+		margin-left: 0.75rem;
+	}
+
+	.network-item {
+		@include hover($surfaceContainerHigh);
+		transition: 0.3s;
+		border-radius: 1rem;
+		padding: 0.5rem 0.5rem;
+
+		label {
+			margin-left: 0.5rem;
+		}
+
+		.connect-label {
+			font-size: 1rem;
+			color: $onSurfaceVariant;
+		}
+	}
+
+	.volume-entry-label {
+		margin-left: 0.5rem;
+		margin-right: 1rem;
+	}
+
+	.volume-mainbox-speaker {
+		margin-top: 1rem;
+	}
+
+	.volume-mainbox-microphone {
+		margin-top: 0.25rem;
+	}
+
+	.volume-menubox-speaker {
+		margin-bottom: 0.75rem;
+	}
+}
+// --- NOWE STYLE DLA KALENDARZA ---
+
+.calendar {
+	// Usuwamy domyślne tło i obramowanie, aby kalendarz
+	// wtopił się w tło .notification-center
+	background-color: transparent;
+	border: none;
+	padding: 0.5rem;
+
+	// Styl nagłówka (Miesiąc Rok i strzałki)
+	.header {
+		color: $onSurface;
+		font-size: 1.1rem;
+		font-weight: 500;
+		margin-bottom: 1rem;
+
+		button {
+			@include hover($surfaceContainerHigh);
+			color: $onSurface;
+			border-radius: 99rem; // okrągły przycisk
+			padding: 0.5rem;
+			transition: 0.3s;
+		}
+	}
+
+	// Nazwy dni tygodnia (Pn, Wt, Śr...)
+	.day-name {
+		color: $onSurfaceVariant;
+		font-size: 0.8rem;
+		margin-bottom: 0.5rem;
+	}
+
+	// Numery dni
+	.day-number {
+		color: $onSurface;
+		border-radius: 99rem;
+		transition: 0.3s;
+
+		&:hover {
+			background-color: $surfaceContainerHigh;
+		}
+
+		// Aktywny, wybrany dzień
+		&:selected {
+			background-color: $primary;
+			color: $onPrimary;
+		}
+	}
+
+	// Styl dla dzisiejszego dnia
+	.today {
+		// Obrysowujemy, ale nie wypełniamy tłem
+		border: 1px solid $onSurfaceVariant;
+
+		// Jeśli dzisiejszy dzień jest również wybrany
+		&:selected {
+			border-color: $primary; // Upewniamy się, że obrys znika
+		}
+	}
+
+	// Kropka oznaczająca wydarzenie
+	.marked {
+		// Używamy radial-gradient do stworzenia kropki pod tekstem
+		background-image: radial-gradient(circle, $primary 3px, transparent 3.5px);
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	// Dni z poza aktualnego miesiąca
+	.other-month {
+		color: $onSurfaceVariant;
+		opacity: 0.5;
+	}
+}
+
+// --- NOWE STYLE DLA LISTY TO-DO ---
+
+.todo-header {
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+}
+
+.todo-list {
+	// Usuwamy domyślne tło i ramki z ListBoxa
+	background-color: transparent;
+	border: none;
+
+	.list-row {
+		// Domyślny styl wiersza
+		transition: background-color 0.2s;
+		border-radius: 0.5rem;
+
+		&:hover {
+			background-color: $surfaceContainerHigh;
+		}
+	}
+
+	// Styl dla ukończonego zadania
+	.task-done {
+		label {
+			color: $onSurfaceVariant;
+			text-decoration: line-through; // Przekreślenie
+		}
+	}
+}
+
+.todo-entry {
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 1.5rem; // Zaokrąglone rogi jak "pill"
+	background-color: $surfaceContainerHigh;
+	border: 1px solid transparent;
+	transition: border-color 0.2s;
+
+	&:focus {
+		border-color: $primary;
+	}
+}
+// --- NOWY STYL DLA PRZYCISKU USUŃ W LIŚCIE TO-DO ---
+
+.todo-delete-button {
+	color: $surfaceContainerHighest; // Domyślnie niemal niewidoczny
+	transition: color 0.2s;
+	font-size: 1.1rem;
+	padding: 0.2rem;
+	border-radius: 99rem;
+}
+
+// Pokazujemy przycisk dopiero po najechaniu na wiersz zadania
+.list-row:hover .todo-delete-button {
+	color: $onSurfaceVariant; // Staje się widoczny
+
+	&:hover {
+		background-color: $surfaceContainerHighest;
+		color: $error; // Kolor błędu po najechaniu na sam przycisk
+	}
 }
